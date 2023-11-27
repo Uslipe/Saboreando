@@ -3,7 +3,7 @@
 ## Integrantes do grupo 
  * Felipe Pereira Reis - felipepereirareis2104@gmail.com
  * Joanderson Borges de Lima - joanderson.lima@ufrpe.br
-
+ * Ênio Lúcio Alves Sefer - eniolucio.sefer@gmail.com
 <br>
 
 ## Descrição geral do projeto 
