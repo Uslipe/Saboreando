@@ -33,3 +33,4 @@ Este repositório abriga o código-fonte de um blog de culinária interativo, of
 <br>
 
 ## Diagrama de classes
+https://ibb.co/L8njWkd
