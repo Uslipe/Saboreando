@@ -28,4 +28,8 @@ Este repositório abriga o código-fonte de um blog de culinária interativo, of
  * **REQ4** - O sistema deve permitir que os usuários compartilhem suas receitas publicamente.
  * **REQ5** - Os usuários devem poder avaliar e comentar nas receitas compartilhadas.
  * **REQ6** - Os usuários podem seguir outros usuários para receber atualizações de suas atividades.
-* **REQ7** - O usuário deve ser capaz de visualizar a quantidade de curtidas e comentários em suas postagens, como também quem comentou e curtiu 
+* **REQ7** - O usuário deve ser capaz de visualizar a quantidade de curtidas e comentários em suas postagens, como também quem comentou e curtiu
+
+<br>
+
+## Diagrama de classes
