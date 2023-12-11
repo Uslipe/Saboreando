@@ -8,7 +8,8 @@ public class Usuario {
 	private String username;
 	private String senha;
 	private List<Postagem> postagens;
-	
+// processo de decisão
+	private String biografia;
 }
 
 import java.util.ArrayList;
