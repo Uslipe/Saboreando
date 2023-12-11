@@ -1,0 +1,55 @@
+import  java.util.ArrayList;
+import java.util.List;
+
+public class Usuario {
+	private String nome;
+	private int idade;
+	private String email;
+	private String username;
+	private String senha;
+	private List<Postagem> postagens;
+	
+}
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Postagem {
+	private String titulo;
+	private String conteudo;
+	private List<Curtida> curtidas;
+	private List<Comentario> comentarios;
+	private int qntCurtidas;
+	private List<Cozinhou> cozinhou;
+	private List<Experimentou> experimentou;
+
+}
+
+public abstract class Interacao {
+	private Usuario usuario;
+	private Postagem postagens;
+
+}
+
+public class Curtida extends Interacao {
+
+}
+
+
+public class Comentario extends Interacao {
+	private String texto;
+
+}
+
+import java.time.LocalDateTime;
+
+public class Cozinhou extends Interacao {
+	private LocalDateTime dataHora;
+
+}
+
+import java.time.LocalDateTime;
+
+public class Experimentou extends Interacao {
+	private LocalDateTime dataHora;
+}
