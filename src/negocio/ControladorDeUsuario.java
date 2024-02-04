@@ -4,14 +4,14 @@ import dados.Repositorio;
 import dados.RepositorioUsuario;
 import negocio.beans.Usuario;
 
-public class ControladoraDeUsuario {
+public class ControladorDeUsuario {
 	    private Repositorio<Usuario> repositorioUsuario;
 
-	    public ControladoraDeUsuario(Repositorio<Usuario> repositorioUsuario2) {
+	    public ControladorDeUsuario(Repositorio<Usuario> repositorioUsuario2) {
 			// TODO Auto-generated constructor stub
 		}
 
-		public void ControladoraUsuario(Repositorio<Usuario> repositorioUsuario) {
+		public void ControladorUsuario(Repositorio<Usuario> repositorioUsuario) {
 	        this.repositorioUsuario = repositorioUsuario;
 	    }
 
