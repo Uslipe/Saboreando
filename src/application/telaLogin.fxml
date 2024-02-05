@@ -54,9 +54,9 @@
                         <Font name="Bernadette" size="24.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="23.0" layoutY="81.0" promptText="Nome de usuário" />
-                  <PasswordField layoutX="23.0" layoutY="124.0" promptText="Senha" />
-                  <Button layoutX="23.0" layoutY="167.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: C38154;" text="Entrar" textFill="WHITE" />
+                  <TextField fx:id="txtUsername" layoutX="23.0" layoutY="81.0" promptText="Nome de usuário" />
+                  <PasswordField fx:id="txtSenha" layoutX="23.0" layoutY="124.0" promptText="Senha" />
+                  <Button layoutX="23.0" layoutY="167.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: C38154;" text="Entrar" textFill="WHITE" />
                   <Line endX="93.0" layoutX="83.0" layoutY="215.0" startX="-60.0" strokeWidth="0.3" />
                   <Label layoutX="24.0" layoutY="231.0" text="Não tem conta?" />
                   <Hyperlink layoutX="109.0" layoutY="228.0" onAction="#trocarParaTelaDeCadastro" text="Cadastre-se" />
