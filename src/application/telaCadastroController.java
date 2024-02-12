@@ -1,7 +1,6 @@
 package application;
 
 import javafx.stage.Stage;
-import negocio.beans.Usuario;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -35,6 +34,8 @@ public class telaCadastroController {
 
         // Crie um novo usuário e adicione à lista
         controladorDeUsuario.criarUsuario(nome, email, nomeUsuario, senha);
+
+        carregarProximaTela("/application/telaLogin.fxml");
 
         System.out.println("Cadastro bem-sucedido!");
     }
