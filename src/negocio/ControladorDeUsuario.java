@@ -1,34 +1,56 @@
 package negocio;
 
+import java.util.List;
+
 import dados.Repositorio;
 import dados.RepositorioUsuario;
 import negocio.beans.Usuario;
 
 public class ControladorDeUsuario {
-	private Repositorio<Usuario> repositorioUsuario;
+    private static ControladorDeUsuario instancia;
+    private Repositorio<Usuario> repositorioUsuario;
 
-	public ControladorDeUsuario(Repositorio<Usuario> repositorioUsuario2) {
-		// TODO Auto-generated constructor stub
-	}
+    private ControladorDeUsuario() {
+        // Inicialize o repositório de usuários
+        this.repositorioUsuario = new RepositorioUsuario();
+    }
 
-	public void ControladorUsuario(Repositorio<Usuario> repositorioUsuario) {
-		this.repositorioUsuario = repositorioUsuario;
-	}
+    public static ControladorDeUsuario getInstance() {
+        if (instancia == null) {
+            instancia = new ControladorDeUsuario();
+        }
+        return instancia;
+    }
 
 	// Metodos CRUD p/ Usuarios
-	public void criarUsuario(String nome, String username, String senha, int idade) {
-		Usuario novoUsuario = new Usuario(nome, username, senha, idade);
+	public void criarUsuario(String nome, String email, String username, String senha) {
+		Usuario novoUsuario = new Usuario(nome, email, username, senha);
 		repositorioUsuario.adicionar(novoUsuario);
 		System.out.println("Usuario criado com sucesso!");
 	}
 
-	public void editarUsuario(Usuario usuario, String novoNome, String novoNomeUsuario, String novaSenha,
-			int novaIdade) {
+	public boolean verificarUsuario(String nomeUsuario, String senha) {
+	// Obtém todos os usuários do repositório
+	List<Usuario> usuarios = repositorioUsuario.listarTodos();
+	
+	// Percorre a lista de usuários
+	for (Usuario usuario : usuarios) {
+		// Verifica se o nome de usuário e senha correspondem
+		if (usuario.getUsername().equals(nomeUsuario) && usuario.getSenha().equals(senha)) {
+			// Usuário encontrado, retorna true
+			return true;
+		}
+	}
+	
+	// Usuário não encontrado, retorna false
+	return false;
+}
+
+	public void editarUsuario(Usuario usuario, String novoNome, String novoNomeUsuario, String novaSenha) {
 		if (repositorioUsuario.listarTodos().contains(usuario)) {
 			usuario.setNome(novoNome);
 			usuario.setNomeUsuario(novoNomeUsuario);
 			usuario.setSenha(novaSenha);
-			usuario.setIdade(novaIdade);
 			System.out.println("Usuario editado com sucesso.");
 		} else {
 			System.out.println("O usuario nao existe.");

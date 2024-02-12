@@ -11,7 +11,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
+import negocio.ControladorDeUsuario;
+
 public class telaLoginController {
+    private ControladorDeUsuario controladorDeUsuario = ControladorDeUsuario.getInstance();
 
     @FXML private TextField txtUsername;
     @FXML private PasswordField txtSenha;
@@ -25,7 +28,10 @@ public class telaLoginController {
     }
 
     private void verificarLogin() throws IOException {
-        if (txtUsername.getText().toString().equals("teste") && txtSenha.getText().toString().equals("123")) {
+        String nomeUsuario = txtUsername.getText().toString();
+        String senha = txtSenha.getText().toString();
+
+        if (controladorDeUsuario.verificarUsuario(nomeUsuario, senha)) {
             System.out.println("Login bem-sucedido. Redirecionando para a próxima tela.");
             carregarProximaTela("/application/telaFeed.fxml");
         } 

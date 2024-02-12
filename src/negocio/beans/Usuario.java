@@ -5,17 +5,15 @@ import  java.util.*;
 
 public class Usuario {
 	private String nome;
-	private LocalDate dataNascimento;
 	private String email;
 	private String username;
 	private String senha;
 	private List<Usuario> seguidores;
 	private List<Usuario> seguindo;
 	
-	public Usuario(String nome, LocalDate dataNascimento, String email, String username, String senha) {
+	public Usuario(String nome, String email, String username, String senha) {
 		super();
 		this.nome = nome;
-		this.dataNascimento = dataNascimento;
 		this.email = email;
 		this.username = username;
 		this.senha = senha;
@@ -31,14 +29,6 @@ public class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 
 	public String getEmail() {

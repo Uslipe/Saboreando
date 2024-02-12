@@ -54,11 +54,11 @@
                         <Font name="Bernadette" size="24.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="24.0" layoutY="95.0" promptText="Nome completo" />
-                  <TextField layoutX="23.0" layoutY="136.0" promptText="Nome de usuário" />
-                  <TextField layoutX="23.0" layoutY="178.0" promptText="Email" />
-                  <PasswordField layoutX="23.0" layoutY="221.0" promptText="Senha" />
-                  <Button layoutX="23.0" layoutY="262.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: C38154;" text="Cadastrar" textFill="WHITE" />
+                  <TextField fx:id="txtNomeCompleto" layoutX="24.0" layoutY="95.0" promptText="Nome completo" />
+                  <TextField fx:id="txtUsername" layoutX="23.0" layoutY="136.0" promptText="Nome de usuário" />
+                  <TextField fx:id="txtEmail" layoutX="23.0" layoutY="178.0" promptText="Email" />
+                  <PasswordField fx:id="txtSenha" layoutX="23.0" layoutY="221.0" promptText="Senha" />
+                  <Button layoutX="23.0" layoutY="262.0" mnemonicParsing="false" onAction="#Cadastrar" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: C38154;" text="Cadastrar" textFill="WHITE" />
                   <Line endX="93.0" layoutX="83.0" layoutY="303.0" startX="-60.0" strokeWidth="0.3" />
                   <Label layoutX="24.0" layoutY="319.0" text="Já possuí conta?" />
                   <Hyperlink layoutX="109.0" layoutY="316.0" onAction="#trocarParaTelaDeLogin" text="Conecte-se" />
