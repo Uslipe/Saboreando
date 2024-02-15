@@ -28,6 +28,11 @@ public class RepositorioUsuario implements Repositorio<Usuario> {
 	        usuarios.remove(usuario);
 	    }
 
+		public Usuario[] getUsuarios() {
+    		return usuarios.toArray(new Usuario[0]);
+		}
+
+
 		@Override
 		public Usuario buscarPorNomeUsuario(String string) {
 			// TODO Auto-generated method stub

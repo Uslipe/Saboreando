@@ -23,6 +23,8 @@ public class telaLoginController {
     private Scene scene;
     private Parent root;
 
+    private String usuarioLogado;
+
     public void login(ActionEvent event) throws IOException {
         verificarLogin();
     }
@@ -33,6 +35,7 @@ public class telaLoginController {
 
         if (controladorDeUsuario.verificarUsuario(nomeUsuario, senha)) {
             System.out.println("Login bem-sucedido. Redirecionando para a próxima tela.");
+            usuarioLogado = nomeUsuario;
             carregarProximaTela("/application/telaFeed.fxml");
         } 
         else if (txtUsername.getText().isEmpty() || txtSenha.getText().isEmpty()) {
@@ -56,10 +59,8 @@ public class telaLoginController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource(caminho));
         Parent novaTela = loader.load();
 
-        // Configurar o controlador, se necessário (use getController() para acessar métodos no controlador)
-        // Exemplo:
-        // SuaClasseController controller = loader.getController();
-        // controller.configurarAlgumaCoisa();
+        TelaPerfilController controller = loader.getController();
+        controller.setUsuarioLogado(usuarioLogado);
 
         // Configurar a Scene com a nova tela
         Scene novaScene = new Scene(novaTela);

@@ -8,7 +8,7 @@ import negocio.beans.Usuario;
 
 public class ControladorDeUsuario {
     private static ControladorDeUsuario instancia;
-    private Repositorio<Usuario> repositorioUsuario;
+        private RepositorioUsuario repositorioUsuario;
 
     private ControladorDeUsuario() {
         // Inicialize o repositório de usuários
@@ -28,6 +28,17 @@ public class ControladorDeUsuario {
 		repositorioUsuario.adicionar(novoUsuario);
 		System.out.println("Usuario criado com sucesso!");
 	}
+
+	public Usuario buscarUsuarioPorNome(String nomeUsuario) {
+		Usuario[] usuarios = repositorioUsuario.getUsuarios(); // Obter array de usuários do repositório
+		for (Usuario usuario : usuarios) {
+			if (usuario.getNome().equals(nomeUsuario)) {
+				return usuario; // Retorna o usuário se encontrado
+			}
+		}
+		return null; // Retorna null se o usuário não for encontrado
+	}
+
 
 	public boolean verificarUsuario(String nomeUsuario, String senha) {
 	// Obtém todos os usuários do repositório
