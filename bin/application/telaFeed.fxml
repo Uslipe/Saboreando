@@ -90,7 +90,7 @@
                </font>
             </Hyperlink>
             <Separator prefWidth="200.0" />
-            <Hyperlink text="Meu perfil" textFill="#c38154">
+            <Hyperlink onAction="#trocarParaTelaPerfil" text="Meu perfil" textFill="#c38154">
                <font>
                   <Font size="20.0" />
                </font>

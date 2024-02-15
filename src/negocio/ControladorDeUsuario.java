@@ -29,10 +29,14 @@ public class ControladorDeUsuario {
 		System.out.println("Usuario criado com sucesso!");
 	}
 
+	public List<Usuario> getUsuarios() {
+    	return repositorioUsuario.listarTodos();
+	}
+
 	public Usuario buscarUsuarioPorNome(String nomeUsuario) {
 		Usuario[] usuarios = repositorioUsuario.getUsuarios(); // Obter array de usuários do repositório
 		for (Usuario usuario : usuarios) {
-			if (usuario.getNome().equals(nomeUsuario)) {
+			if (usuario.getUsername().equals(nomeUsuario)) {
 				return usuario; // Retorna o usuário se encontrado
 			}
 		}

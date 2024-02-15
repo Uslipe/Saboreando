@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 
+import negocio.beans.ContextoTemporario;
 import negocio.ControladorDeUsuario;
 
 public class telaLoginController {
@@ -23,8 +24,6 @@ public class telaLoginController {
     private Scene scene;
     private Parent root;
 
-    private String usuarioLogado;
-
     public void login(ActionEvent event) throws IOException {
         verificarLogin();
     }
@@ -35,7 +34,7 @@ public class telaLoginController {
 
         if (controladorDeUsuario.verificarUsuario(nomeUsuario, senha)) {
             System.out.println("Login bem-sucedido. Redirecionando para a próxima tela.");
-            usuarioLogado = nomeUsuario;
+            ContextoTemporario.getInstance().setNome(nomeUsuario);
             carregarProximaTela("/application/telaFeed.fxml");
         } 
         else if (txtUsername.getText().isEmpty() || txtSenha.getText().isEmpty()) {
@@ -58,9 +57,6 @@ public class telaLoginController {
         // Carregar a FXML da próxima tela
         FXMLLoader loader = new FXMLLoader(getClass().getResource(caminho));
         Parent novaTela = loader.load();
-
-        TelaPerfilController controller = loader.getController();
-        controller.setUsuarioLogado(usuarioLogado);
 
         // Configurar a Scene com a nova tela
         Scene novaScene = new Scene(novaTela);

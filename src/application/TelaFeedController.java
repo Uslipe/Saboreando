@@ -24,4 +24,12 @@ public class TelaFeedController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public void trocarParaTelaPerfil(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("/application/telaPerfil.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 }
