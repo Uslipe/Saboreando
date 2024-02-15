@@ -5,6 +5,7 @@ public class ContextoTemporario {
     private String nome;
     private String username;
     private String email;
+    private Postagem postagemAtual;
 
     private ContextoTemporario() {}
 
@@ -37,5 +38,14 @@ public class ContextoTemporario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    
+    public Postagem getPostagemAtual() {
+        return postagemAtual;
+    }
+
+    public void setPostagemAtual(Postagem postagemAtual) {
+        this.postagemAtual = postagemAtual;
     }
 }

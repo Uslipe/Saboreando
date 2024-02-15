@@ -3,7 +3,9 @@ package negocio;
 import java.util.List;
 
 import dados.Repositorio;
+import dados.RepositorioPostagem;
 import negocio.beans.Comentario;
+import negocio.beans.ContextoTemporario;
 import negocio.beans.Cozinhou;
 import negocio.beans.Curtida;
 import negocio.beans.Experimentou;
@@ -12,8 +14,9 @@ import negocio.beans.Usuario;
 
 public class ControladorDePostagem {
     private static ControladorDePostagem instancia;
+	private ContextoTemporario contextoTemporario;
+	private RepositorioPostagem postagemRepositorio;
 
-    private Repositorio<Postagem> postagemRepositorio;
     private Repositorio<Curtida> curtidaRepositorio;
     private Repositorio<Comentario> comentarioRepositorio;
     private Repositorio<Cozinhou> cozinhouRepositorio;
@@ -21,7 +24,8 @@ public class ControladorDePostagem {
     private Repositorio<Usuario> usuarioRepositorio;
 
     private ControladorDePostagem() {
-        // Construtor privado para evitar instanciação externa
+         this.postagemRepositorio = new RepositorioPostagem();
+        
     }
 
     public static ControladorDePostagem getInstance() {
@@ -30,24 +34,6 @@ public class ControladorDePostagem {
         }
         return instancia;
     }
-	    
-	// Metodo de inicializacao
-	public void inicializarExemplo() {
-		Usuario usuario1 = new Usuario("Alice", "alice123", "senha123", 25);
-		Usuario usuario2 = new Usuario("Bob", "bob456", "senha456", 30);
-		
-		Postagem postagem1 = new Postagem("Título 1", "Conteúdo da postagem 1");
-		Postagem postagem2 = new Postagem("Título 2", "Conteúdo da postagem 2");
-
-		postagemRepositorio.adicionar(postagem1);
-		postagemRepositorio.adicionar(postagem2);
-
-		curtidaRepositorio.adicionar(new Curtida(postagem1, usuario1));
-		curtidaRepositorio.adicionar(new Curtida(postagem2, usuario2));
-
-		comentarioRepositorio.adicionar(new Comentario(usuario1, "Comentário na postagem 1"));
-		comentarioRepositorio.adicionar(new Comentario(usuario2, "Comentário na postagem 2"));
-	}
 
 	// Metodos CRUD p/ Comentarios
 	public void adicionarComentario(Postagem postagem, Usuario usuario, String textoComentario) {
@@ -87,7 +73,8 @@ public class ControladorDePostagem {
 	public void postar(String titulo, String conteudo) {
 		Postagem novaPostagem = new Postagem(titulo, conteudo);
 		postagemRepositorio.adicionar(novaPostagem);
-		System.out.println("Postagem criada com sucesso!");
+		contextoTemporario.setPostagemAtual(novaPostagem);
+		System.out.println("Postagem criada com sucesso!"); 
 	}
 
 	public void editarPostagem(Postagem postagem, String novoTitulo, String novoConteudo) {

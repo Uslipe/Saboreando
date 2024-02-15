@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Postagem {
+    private static int contador = 0; // Contador para autoincremento de ids
+    private int id;
 	private String titulo;
 	private String conteudo;
 	private List<Curtida> curtidas;
@@ -11,10 +13,10 @@ public class Postagem {
 	private int qntCurtidas;
 	private List<Cozinhou> cozinhou;
 	private List<Experimentou> experimentou;
-	private List<Usuario> usuarios;
 	
 	  // Construtor
     public Postagem(String titulo, String conteudo) {
+        this.id = getNextId();
         this.titulo = titulo;
         this.conteudo = conteudo;
         this.curtidas = new ArrayList<>();
@@ -22,7 +24,10 @@ public class Postagem {
         this.qntCurtidas = 0;
         this.cozinhou = new ArrayList<>();
         this.experimentou = new ArrayList<>();
-        this.usuarios = new ArrayList<>();
+    }
+    
+    private static int getNextId() {
+        return ++contador;
     }
 
     // Get e Set
@@ -60,14 +65,6 @@ public class Postagem {
 
     public List<Experimentou> getExperimentou() {
         return experimentou;
-    }
-
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
     }
 
     // Metodo p/ calcular qntCurtidas

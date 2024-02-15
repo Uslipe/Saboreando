@@ -12,9 +12,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import negocio.ControladorDePostagem;
+import negocio.ControladorDeUsuario;
+import negocio.beans.Postagem;
 
 public class TelaCriarPostagemController {
     ControladorDePostagem controlador = ControladorDePostagem.getInstance();
+    ControladorDeUsuario controladorUsuario = ControladorDeUsuario.getInstance();
 
     @FXML
     private TextField txtTituloPostagem;
@@ -29,8 +32,14 @@ public class TelaCriarPostagemController {
         String titulo = txtTituloPostagem.getText();
         String conteudo = txtConteudoPostagem.getText();
 
-        controlador.postar(titulo, conteudo);
-        System.out.println("Postagem feita!");
+        if (!titulo.isEmpty() && !conteudo.isEmpty()) {
+            // Cria a postagem
+            controlador.postar(titulo, conteudo);
+            System.out.println("Postagem feita!");
+
+        } else {
+            System.out.println("Por favor, preencha todos os campos.");
+        }
     }
 
     public void trocarParaTelaFeed(ActionEvent event) throws IOException {

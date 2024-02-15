@@ -10,6 +10,7 @@ public class Usuario {
 	private String senha;
 	private List<Usuario> seguidores;
 	private List<Usuario> seguindo;
+	private List<Postagem> minhasPostagens;
 	
 	public Usuario(String nome, String email, String username, String senha) {
 		super();
@@ -17,11 +18,12 @@ public class Usuario {
 		this.email = email;
 		this.username = username;
 		this.senha = senha;
+		this.minhasPostagens = new ArrayList<>();
 	}
 
-	public Usuario(String string, String string2, String string3, int i) {
-		// TODO Auto-generated constructor stub
-	}
+	public void adicionarPostagem(Postagem postagem) {
+        minhasPostagens.add(postagem);
+    }
 
 	public String getNome() {
 		return nome;
